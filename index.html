@@ -11,30 +11,611 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Base path fix for hosting -->
-    <base href="/">
-    <!-- For React Router to work with traditional hosting -->
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages/Traditional Hosting
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
+    <style>
+      :root {
+        --arz-purple: #9b87f5;
+        --arz-pink: #FF84FF;
+        --arz-blue: #4169E1;
+        --bg-dark: #0a0e17;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-dark);
+        color: white;
+        line-height: 1.6;
+      }
+      
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+        background-color: rgba(10, 14, 23, 0.7);
+        z-index: 100;
+      }
+      
+      .logo {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        background: linear-gradient(90deg, var(--arz-purple), var(--arz-pink));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+      
+      .nav-link {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+      
+      .nav-link:hover {
+        color: var(--arz-purple);
+      }
+      
+      /* Hero */
+      .hero {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding: 60px 0;
+      }
+      
+      .hero-content {
+        max-width: 600px;
+      }
+      
+      .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50px;
+        margin-bottom: 20px;
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .hero-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+      
+      .text-gradient {
+        background: linear-gradient(90deg, var(--arz-purple), var(--arz-pink));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      
+      .hero-description {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 30px;
+      }
+      
+      .button-primary {
+        display: inline-block;
+        padding: 14px 24px;
+        background: linear-gradient(90deg, var(--arz-purple), var(--arz-pink));
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .button-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(155, 135, 245, 0.3);
+      }
+      
+      .button-secondary {
+        display: inline-block;
+        padding: 14px 24px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.3s;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        margin-left: 15px;
+      }
+      
+      .button-secondary:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      
+      /* Features */
+      .features {
+        padding: 100px 0;
+        position: relative;
+      }
+      
+      .features-heading {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      
+      .feature-tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        background-color: rgba(155, 135, 245, 0.1);
+        border-radius: 50px;
+        margin-bottom: 20px;
+        color: var(--arz-purple);
+      }
+      
+      .feature-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      
+      .feature-description {
+        max-width: 600px;
+        margin: 0 auto;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      
+      .feature-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        padding: 30px;
+        transition: all 0.3s;
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.1);
+      }
+      
+      .feature-icon {
+        width: 48px;
+        height: 48px;
+        background: rgba(155, 135, 245, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      
+      .feature-card-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      
+      .feature-card-description {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      
+      /* CTA */
+      .cta {
+        padding: 80px 0;
+        position: relative;
+      }
+      
+      .cta-box {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 60px;
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+      }
+      
+      .cta-content {
+        max-width: 600px;
+      }
+      
+      .cta-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      
+      .cta-description {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 30px;
+      }
+      
+      .server-ip {
+        display: inline-block;
+        font-family: monospace;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 10px 15px;
+        border-radius: 8px;
+        color: var(--arz-pink);
+        margin-bottom: 30px;
+      }
+      
+      /* Footer */
+      .footer {
+        padding: 60px 0 30px;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+      
+      .footer-top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+      
+      .footer-logo {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        background: linear-gradient(90deg, var(--arz-purple), var(--arz-pink));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 15px;
+      }
+      
+      .footer-description {
+        max-width: 300px;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 20px;
+      }
+      
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+      
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+      }
+      
+      .social-link:hover {
+        background: rgba(155, 135, 245, 0.3);
+        transform: translateY(-3px);
+      }
+      
+      .footer-links-title {
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      
+      .footer-links {
+        list-style: none;
+      }
+      
+      .footer-link {
+        margin-bottom: 10px;
+      }
+      
+      .footer-link a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      
+      .footer-link a:hover {
+        color: var(--arz-purple);
+      }
+      
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 14px;
+      }
+      
+      /* Responsive */
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 15px 0;
         }
-      }(window.location))
-    </script>
+        
+        .nav-links {
+          gap: 15px;
+        }
+        
+        .hero-title {
+          font-size: 36px;
+        }
+        
+        .button-secondary {
+          margin-left: 0;
+          margin-top: 15px;
+        }
+        
+        .cta-box {
+          padding: 30px;
+          text-align: center;
+        }
+        
+        .cta-actions {
+          justify-content: center;
+        }
+        
+        .footer-top {
+          flex-direction: column;
+          gap: 30px;
+        }
+        
+        .footer-bottom {
+          flex-direction: column;
+          gap: 15px;
+          text-align: center;
+        }
+      }
+      
+      /* Particles Effect */
+      .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        animation: float 5s infinite ease-in-out;
+      }
+      
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0) translateX(0);
+        }
+        50% {
+          transform: translateY(-20px) translateX(10px);
+        }
+      }
+    </style>
   </head>
-
   <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <header class="navbar container">
+      <div class="logo">ARZFUN</div>
+      <nav class="nav-links">
+        <a href="#features" class="nav-link">Преимущества</a>
+        <a href="#download" class="nav-link">Скачать</a>
+        <a href="#support" class="nav-link">Поддержка</a>
+      </nav>
+    </header>
+    
+    <section class="hero container">
+      <div class="particles">
+        <!-- Particles generated by JS -->
+      </div>
+      <div class="hero-content">
+        <div class="hero-tag">Новый сервер Arizona RP</div>
+        <h1 class="hero-title">Играй с <span class="text-gradient">полной свободой</span> и бесплатным админом</h1>
+        <p class="hero-description">Присоединяйся к самому свободному серверу Аризоны. Никаких ограничений, читов и проблем с администрацией.</p>
+        <div class="hero-actions">
+          <a href="#download" class="button-primary">Начать играть</a>
+          <a href="#support" class="button-secondary">Поддержка</a>
+        </div>
+      </div>
+    </section>
+    
+    <section id="features" class="features container">
+      <div class="features-heading">
+        <div class="feature-tag">✨ Преимущества</div>
+        <h2 class="feature-title">Почему выбирают <span class="text-gradient">ARZFUN</span></h2>
+        <p class="feature-description">Уникальный сервер, где каждый может насладиться полной свободой без ограничений</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3 class="feature-card-title">Полная свобода</h3>
+          <p class="feature-card-description">Езди, бегай, летай и делай всё, что захочешь. Никаких ограничений!</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">👑</div>
+          <h3 class="feature-card-title">Бесплатный админ</h3>
+          <p class="feature-card-description">Получи админские права абсолютно бесплатно и управляй игровым процессом.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3 class="feature-card-title">Дружелюбное сообщество</h3>
+          <p class="feature-card-description">Тысячи игроков каждый день наслаждаются игрой вместе на нашем сервере.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3 class="feature-card-title">Без читеров</h3>
+          <p class="feature-card-description">Наша защита от нечестной игры обеспечивает комфортный игровой опыт.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3 class="feature-card-title">Регулярные обновления</h3>
+          <p class="feature-card-description">Мы постоянно добавляем новый контент и улучшаем существующий.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-card-title">Быстрая техподдержка</h3>
+          <p class="feature-card-description">Наша команда поддержки всегда готова помочь с любыми вопросами.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section id="download" class="cta container">
+      <div class="cta-box">
+        <div class="cta-content">
+          <h2 class="cta-title">Готов присоединиться к <span class="text-gradient">ARZFUN</span>?</h2>
+          <p class="cta-description">Не упусти возможность стать частью самого свободного сервера Аризоны. Скачивай клиент прямо сейчас!</p>
+          <div class="server-ip">ip: join.arzfun.com:7777</div>
+        </div>
+        <div class="cta-actions">
+          <a href="#download" class="button-primary">Скачать клиент</a>
+          <a href="#support" class="button-secondary">Поддержка</a>
+        </div>
+      </div>
+    </section>
+    
+    <footer id="support" class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-info">
+            <div class="footer-logo">ARZFUN</div>
+            <p class="footer-description">Самый свободный сервер Arizona Role Play с бесплатным админом для всех игроков.</p>
+            <div class="social-links">
+              <a href="#" class="social-link">VK</a>
+              <a href="#" class="social-link">TG</a>
+              <a href="#" class="social-link">DS</a>
+            </div>
+          </div>
+          
+          <div class="footer-links-group">
+            <h4 class="footer-links-title">Ссылки</h4>
+            <ul class="footer-links">
+              <li class="footer-link"><a href="#">Главная</a></li>
+              <li class="footer-link"><a href="#features">Преимущества</a></li>
+              <li class="footer-link"><a href="#download">Скачать</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links-group">
+            <h4 class="footer-links-title">Поддержка</h4>
+            <ul class="footer-links">
+              <li class="footer-link"><a href="#">Помощь</a></li>
+              <li class="footer-link"><a href="#">Сообщить о баге</a></li>
+              <li class="footer-link"><a href="#">Контакты</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links-group">
+            <h4 class="footer-links-title">Правила</h4>
+            <ul class="footer-links">
+              <li class="footer-link"><a href="#">Правила сервера</a></li>
+              <li class="footer-link"><a href="#">Политика конфиденциальности</a></li>
+              <li class="footer-link"><a href="#">Условия использования</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <div>© 2023 ARZFUN. Все права защищены.</div>
+          <div>Arizona Role Play не имеет отношения к данному проекту</div>
+        </div>
+      </div>
+    </footer>
+    
+    <script>
+      // Generate particles
+      function createParticles() {
+        const particlesContainer = document.querySelector('.particles');
+        const particleCount = 20;
+        
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          
+          // Random size
+          const size = Math.random() * 6 + 2;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          
+          // Random position
+          particle.style.top = `${Math.random() * 100}%`;
+          particle.style.left = `${Math.random() * 100}%`;
+          
+          // Random color
+          const colors = ['#9b87f5', '#FF84FF', '#4169E1'];
+          particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          
+          // Random animation delay and duration
+          particle.style.animationDelay = `${Math.random() * 5}s`;
+          particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+          
+          particlesContainer.appendChild(particle);
+        }
+      }
+      
+      // Init
+      document.addEventListener('DOMContentLoaded', () => {
+        createParticles();
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (!targetId || targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
