@@ -150,13 +150,13 @@ const Index = () => {
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
-                  href="#download" 
+                  href="https://arzfun.com/link/download" 
                   className="button-primary min-w-[170px] text-center"
                 >
                   Скачать клиент
                 </a>
                 <a 
-                  href="#support" 
+                  href="https://arzfun.com/link/support" 
                   className="button-secondary min-w-[170px] text-center"
                 >
                   Поддержка

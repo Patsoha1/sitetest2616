@@ -39,24 +39,24 @@ export const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
-          <a href="#features" className="navbar-item">Особенности</a>
-          <a href="#rules" className="navbar-item">Правила</a>
-          <a href="#news" className="navbar-item">Новости</a>
-          <a href="#top" className="navbar-item">Топ 100</a>
-          <a href="#forum" className="navbar-item">Форум</a>
-          <a href="#donate" className="navbar-item">Донат</a>
+          <a href="https://arzfun.com/link/features" className="navbar-item">Особенности</a>
+          <a href="https://arzfun.com/link/rules" className="navbar-item">Правила</a>
+          <a href="https://arzfun.com/link/news" className="navbar-item">Новости</a>
+          <a href="https://arzfun.com/link/top" className="navbar-item">Топ 100</a>
+          <a href="https://arzfun.com/link/forum" className="navbar-item">Форум</a>
+          <a href="https://arzfun.com/link/donate" className="navbar-item">Донат</a>
         </div>
 
         <div className="hidden md:flex items-center gap-3">
           <a 
-            href="#support" 
+            href="https://arzfun.com/link/support" 
             className="button-secondary flex items-center gap-2"
           >
             <Sparkles size={18} className="text-arz-purple" />
             <span>Поддержка</span>
           </a>
           <a 
-            href="#download" 
+            href="https://arzfun.com/link/download" 
             className="button-primary flex items-center gap-2"
           >
             <Download size={18} />
@@ -77,16 +77,16 @@ export const Navbar = () => {
       {isOpen && isMobile && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-black/80 backdrop-blur-md animate-fade-in">
           <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
-            <a href="#features" className="text-white py-3 border-b border-white/10" onClick={() => setIsOpen(false)}>Особенности</a>
-            <a href="#rules" className="text-white py-3 border-b border-white/10" onClick={() => setIsOpen(false)}>Правила</a>
-            <a href="#news" className="text-white py-3 border-b border-white/10" onClick={() => setIsOpen(false)}>Новости</a>
-            <a href="#top" className="text-white py-3 border-b border-white/10" onClick={() => setIsOpen(false)}>Топ 100</a>
-            <a href="#forum" className="text-white py-3 border-b border-white/10" onClick={() => setIsOpen(false)}>Форум</a>
-            <a href="#donate" className="text-white py-3 border-b border-white/10" onClick={() => setIsOpen(false)}>Донат</a>
+            <a href="https://arzfun.com/link/features" className="text-white py-3 border-b border-white/10" onClick={() => setIsOpen(false)}>Особенности</a>
+            <a href="https://arzfun.com/link/rules" className="text-white py-3 border-b border-white/10" onClick={() => setIsOpen(false)}>Правила</a>
+            <a href="https://arzfun.com/link/news" className="text-white py-3 border-b border-white/10" onClick={() => setIsOpen(false)}>Новости</a>
+            <a href="https://arzfun.com/link/top" className="text-white py-3 border-b border-white/10" onClick={() => setIsOpen(false)}>Топ 100</a>
+            <a href="https://arzfun.com/link/forum" className="text-white py-3 border-b border-white/10" onClick={() => setIsOpen(false)}>Форум</a>
+            <a href="https://arzfun.com/link/donate" className="text-white py-3 border-b border-white/10" onClick={() => setIsOpen(false)}>Донат</a>
             
             <div className="flex flex-col gap-3 mt-4">
               <a 
-                href="#support" 
+                href="https://arzfun.com/link/support" 
                 className="button-secondary w-full justify-center"
                 onClick={() => setIsOpen(false)}
               >
@@ -94,7 +94,7 @@ export const Navbar = () => {
                 <span>Поддержка</span>
               </a>
               <a 
-                href="#download" 
+                href="https://arzfun.com/link/download" 
                 className="button-primary w-full justify-center"
                 onClick={() => setIsOpen(false)}
               >

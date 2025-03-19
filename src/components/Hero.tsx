@@ -93,7 +93,7 @@ export const Hero = () => {
               className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
             >
               <a 
-                href="#download" 
+                href="https://arzfun.com/link/download" 
                 className="button-primary group"
               >
                 <span className="flex items-center justify-center gap-2">
@@ -104,7 +104,7 @@ export const Hero = () => {
               </a>
               
               <a 
-                href="#support" 
+                href="https://arzfun.com/link/support" 
                 className="button-secondary group"
               >
                 <span className="flex items-center justify-center gap-2">
@@ -131,7 +131,7 @@ export const Hero = () => {
           >
             <div className="relative">
               <img 
-                src="/lovable-uploads/54d52040-6326-4d0b-a425-09dc8ef8b407.png" 
+                src="https://arzfun.com/wp-content/uploads/2024/04/photo-banner-min.webp" 
                 alt="ArzFun Character" 
                 className="max-w-full w-auto h-auto max-h-[70vh] object-contain relative z-10"
               />

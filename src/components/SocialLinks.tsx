@@ -8,10 +8,10 @@ interface SocialLinksProps {
 
 export const SocialLinks = ({ className }: SocialLinksProps) => {
   const socialLinks = [
-    { name: 'Телеграм', icon: 'telegram.svg', url: '#telegram' },
-    { name: 'ВКонтакте', icon: 'vk.svg', url: '#vk' },
-    { name: 'TikTok', icon: 'tiktok.svg', url: '#tiktok' },
-    { name: 'YouTube', icon: 'youtube.svg', url: '#youtube' },
+    { name: 'Телеграм', icon: 'telegram.svg', url: 'https://arzfun.com/link/telegram' },
+    { name: 'ВКонтакте', icon: 'vk.svg', url: 'https://arzfun.com/link/vk' },
+    { name: 'TikTok', icon: 'tiktok.svg', url: 'https://arzfun.com/link/tiktok' },
+    { name: 'YouTube', icon: 'youtube.svg', url: 'https://arzfun.com/link/youtube' },
   ];
 
   const containerVariants = {

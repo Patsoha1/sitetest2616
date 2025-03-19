@@ -26,20 +26,20 @@ const Footer = () => {
           <div className="md:col-span-1">
             <h3 className="text-white font-medium text-lg mb-6">Навигация</h3>
             <ul className="space-y-3">
-              <li><a href="#features" className="text-white/70 hover:text-white transition-colors duration-300">Особенности</a></li>
-              <li><a href="#rules" className="text-white/70 hover:text-white transition-colors duration-300">Правила</a></li>
-              <li><a href="#news" className="text-white/70 hover:text-white transition-colors duration-300">Новости</a></li>
-              <li><a href="#top" className="text-white/70 hover:text-white transition-colors duration-300">Топ 100</a></li>
+              <li><a href="https://arzfun.com/link/features" className="text-white/70 hover:text-white transition-colors duration-300">Особенности</a></li>
+              <li><a href="https://arzfun.com/link/rules" className="text-white/70 hover:text-white transition-colors duration-300">Правила</a></li>
+              <li><a href="https://arzfun.com/link/news" className="text-white/70 hover:text-white transition-colors duration-300">Новости</a></li>
+              <li><a href="https://arzfun.com/link/top" className="text-white/70 hover:text-white transition-colors duration-300">Топ 100</a></li>
             </ul>
           </div>
           
           <div className="md:col-span-1">
             <h3 className="text-white font-medium text-lg mb-6">Сообщество</h3>
             <ul className="space-y-3">
-              <li><a href="#forum" className="text-white/70 hover:text-white transition-colors duration-300">Форум</a></li>
-              <li><a href="#donate" className="text-white/70 hover:text-white transition-colors duration-300">Донат</a></li>
-              <li><a href="#support" className="text-white/70 hover:text-white transition-colors duration-300">Поддержка</a></li>
-              <li><a href="#contact" className="text-white/70 hover:text-white transition-colors duration-300">Контакты</a></li>
+              <li><a href="https://arzfun.com/link/forum" className="text-white/70 hover:text-white transition-colors duration-300">Форум</a></li>
+              <li><a href="https://arzfun.com/link/donate" className="text-white/70 hover:text-white transition-colors duration-300">Донат</a></li>
+              <li><a href="https://arzfun.com/link/support" className="text-white/70 hover:text-white transition-colors duration-300">Поддержка</a></li>
+              <li><a href="https://arzfun.com/link/contact" className="text-white/70 hover:text-white transition-colors duration-300">Контакты</a></li>
             </ul>
           </div>
           
@@ -51,7 +51,7 @@ const Footer = () => {
                 ip: join.arzfun.com:7777
               </div>
               <a 
-                href="#download" 
+                href="https://arzfun.com/link/download" 
                 className="button-primary w-full flex justify-center"
               >
                 Скачать
@@ -65,8 +65,8 @@ const Footer = () => {
             © {new Date().getFullYear()} ARZFUN. Все права защищены.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#terms" className="text-white/50 text-sm hover:text-white transition-colors duration-300">Условия</a>
-            <a href="#privacy" className="text-white/50 text-sm hover:text-white transition-colors duration-300">Конфиденциальность</a>
+            <a href="https://arzfun.com/link/terms" className="text-white/50 text-sm hover:text-white transition-colors duration-300">Условия</a>
+            <a href="https://arzfun.com/link/privacy" className="text-white/50 text-sm hover:text-white transition-colors duration-300">Конфиденциальность</a>
           </div>
         </div>
       </div>
