@@ -1,12 +1,12 @@
 
-import { Toaster } from "./components/ui/toaster.js";
-import { Toaster as Sonner } from "./components/ui/sonner.js";
-import { TooltipProvider } from "./components/ui/tooltip.js";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import Index from "./pages/Index.js";
-import NotFound from "./pages/NotFound.js";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
