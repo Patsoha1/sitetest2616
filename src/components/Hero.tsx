@@ -2,9 +2,11 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Download, Sparkles } from 'lucide-react';
+import { useMobile } from '@/hooks/use-mobile';
 
 export const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const isMobile = useMobile();
   
   useEffect(() => {
     setIsLoaded(true);
@@ -32,7 +34,19 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-screen pt-28 overflow-hidden bg-space-bg">
-      <div className="absolute inset-0 bg-particles opacity-60"></div>
+      {!isMobile ? (
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="video-background"
+        >
+          <source src="https://arzfun.com/wp-content/uploads/2024/05/0518.mp4" type="video/mp4" />
+        </video>
+      ) : (
+        <div className="absolute inset-0 bg-particles opacity-60"></div>
+      )}
       <div className="space-overlay"></div>
       
       {/* Animated Particles */}

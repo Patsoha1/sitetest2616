@@ -1,11 +1,26 @@
 
 import { Link } from 'react-router-dom';
 import SocialLinks from './SocialLinks';
+import { useMobile } from '@/hooks/use-mobile';
 
 const Footer = () => {
+  const isMobile = useMobile();
+  
   return (
     <footer className="relative bg-space-bg pt-16 pb-8 overflow-hidden">
-      <div className="absolute inset-0 bg-particles opacity-30"></div>
+      {!isMobile ? (
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="video-background"
+        >
+          <source src="https://arzfun.com/wp-content/uploads/2024/05/0518.mp4" type="video/mp4" />
+        </video>
+      ) : (
+        <div className="absolute inset-0 bg-particles opacity-30"></div>
+      )}
       <div className="space-overlay"></div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">

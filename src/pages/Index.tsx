@@ -1,12 +1,14 @@
-
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 import { Sparkles } from 'lucide-react';
+import { useMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
+  const isMobile = useMobile();
+  
   useEffect(() => {
     document.title = 'ARZFUN - FREE ADMIN';
   }, []);
@@ -27,7 +29,19 @@ const Index = () => {
       
       {/* Features Section */}
       <section id="features" className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-particles opacity-30"></div>
+        {!isMobile ? (
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="video-background"
+          >
+            <source src="https://arzfun.com/wp-content/uploads/2024/05/0518.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <div className="absolute inset-0 bg-particles opacity-30"></div>
+        )}
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center mb-16">
             <motion.div 
@@ -132,7 +146,19 @@ const Index = () => {
       
       {/* CTA Section */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-arz-purple/30 to-arz-pink/30 opacity-20"></div>
+        {!isMobile ? (
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="video-background"
+          >
+            <source src="https://arzfun.com/wp-content/uploads/2024/05/0518.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-r from-arz-purple/30 to-arz-pink/30 opacity-20"></div>
+        )}
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="glass-effect rounded-2xl p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center justify-between gap-10">
