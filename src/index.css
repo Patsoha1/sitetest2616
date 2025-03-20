@@ -133,11 +133,6 @@
   .particle {
     @apply absolute rounded-full opacity-30 animate-pulse-gentle;
   }
-  
-  .video-background {
-    @apply absolute inset-0 w-full h-full object-cover z-0;
-    filter: brightness(0.6);
-  }
 }
 
 .space-overlay::before {
@@ -158,4 +153,3 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-
