@@ -1,10 +1,10 @@
 
 import { Link } from 'react-router-dom';
 import SocialLinks from './SocialLinks';
-import { useMobile } from '@/hooks/use-mobile';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Footer = () => {
-  const isMobile = useMobile();
+  const isMobile = useIsMobile();
   
   return (
     <footer className="relative bg-space-bg pt-16 pb-8 overflow-hidden">

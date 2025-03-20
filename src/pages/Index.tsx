@@ -4,10 +4,10 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 import { Sparkles } from 'lucide-react';
-import { useMobile } from '@/hooks/use-mobile';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
-  const isMobile = useMobile();
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     document.title = 'ARZFUN - FREE ADMIN';
